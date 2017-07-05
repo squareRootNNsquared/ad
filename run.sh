@@ -1,9 +1,5 @@
 #!/bin/bash
 
-###
-### Ensure this file is executable ( cmhod +x [[path]] )
-###
-
 clear
 sleep 1
 echo "[[ Anomaly Detection has begun ]]"
@@ -11,5 +7,9 @@ sleep 2
 clear
 sleep 1
 
-python /home/e/Desktop/ad/src/s.py &
-python /home/e/Desktop/ad/src/ad.py
+rootPath=$( cd "$(dirname "${BASH_SOURCE[0]}")" ; pwd -P )
+python "$rootPath/src/s.py" &
+echo "[[ s.py operational ]]"
+python "$rootPath/src/ad.py"
+kill $(pgrep -f 's.py')
+echo "[[ s.py terminated ]]"
