@@ -22,7 +22,7 @@ class Server(ss.ThreadingTCPServer):
 
 class Handler(ss.BaseRequestHandler):
 	def handle(self):
-		data_j = open("%s/sample_dataset/stream_log.json"%(path()),"r",3333333)
+		data_j = open("%s/log_input/stream_log.json"%(path()),"r",3333333)
 		data_s = data_j.read()
 		self.request.sendall(data_s)
 
