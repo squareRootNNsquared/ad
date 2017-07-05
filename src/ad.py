@@ -111,7 +111,7 @@ def subNetworkList(idSet,self_):
 timeHolder = 0
 eventTime = 0
 startTime = t.time()
-with open("%s/sample_dataset/batch_log.json"%(path())) as existingData:
+with open("%s/log_input/batch_log.json"%(path())) as existingData:
 	for event in existingData:
 		event = ast.literal_eval(event)
 		if "timestamp" in event:
